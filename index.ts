@@ -10,7 +10,8 @@ import yoRutas from './rutas/imagenesYo';
 import sobreMiRutas from "./rutas/sobreMi";
 import tecnologiasRutas from "./rutas/tecnologias";
 import noticiasRutas from "./rutas/noticias";
-
+import express from 'express';
+import path from 'path';
 
 const server = new Server();
 
@@ -25,13 +26,14 @@ server.app.use(cors({origin:true,credentials:true}));
 server.app.use(fileUpload());
 
 //Rutas
+server.app.use(express.static(path.join((__dirname+'/public'))));
 server.app.use('/usuario', usuarioRutas);
 server.app.use('/contacto', contactoRutas);
 server.app.use('/uploadYo', yoRutas );
 server.app.use('/sobreMi', sobreMiRutas );
 server.app.use('/tecnologia',tecnologiasRutas);
 server.app.use('/noticias', noticiasRutas);
-server.app.use(cors());
+//server.app.use(cors());
 
 //Conectar BBDD
 
