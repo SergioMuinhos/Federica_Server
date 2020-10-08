@@ -43,7 +43,7 @@ else {
 }
 mongoose_1.default.connect(mongoDB, 
 // 'mongodb+srv://admin_1:abc123.@cluster0.dydpz.mongodb.net/FedeDjBase?retryWrites=true&w=majority',
-{ useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false }, (err) => {
+{ useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: true }, (err) => {
     if (err)
         throw "err";
     console.log('Base de Datos ONLINE');
