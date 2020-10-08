@@ -29,17 +29,16 @@ server.app.use('/uploadYo', imagenesYo_1.default);
 server.app.use('/sobreMi', sobreMi_1.default);
 server.app.use('/tecnologia', tecnologias_1.default);
 server.app.use('/noticias', noticias_1.default);
-server.app.use(cors_1.default());
 //Conectar BBDD
 let mongoDB;
 if (process.env.MODE_ENV == 'production') {
-    mongoDB = 'mongodb+srv://admin_1:abc123.@cluster0.dydpz.mongodb.net/FedeDjBase';
+    mongoDB = 'mongodb+srv://admin_1:abc123.@cluster0.dydpz.mongodb.net/FedeDjBase?retryWrites=true&w=majority';
 }
 else {
     mongoDB = 'mongodb://localhost:27017/FedeDjBase';
 }
 mongoose_1.default.connect(mongoDB, 
-// 'mongodb+srv://admin_1:abc123.@cluster0.dydpz.mongodb.net/FedeDjBase?retryWrites=true&w=majority',
+//'mongodb+srv://admin_1:abc123.@cluster0.dydpz.mongodb.net/FedeDjBase?retryWrites=true&w=majority',
 { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false }, (err) => {
     if (err)
         throw "err";

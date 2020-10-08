@@ -31,19 +31,20 @@ server.app.use('/uploadYo', yoRutas );
 server.app.use('/sobreMi', sobreMiRutas );
 server.app.use('/tecnologia',tecnologiasRutas);
 server.app.use('/noticias', noticiasRutas);
+server.app.use(cors());
 
 //Conectar BBDD
 
 let mongoDB:string
 if(process.env.MODE_ENV=='production'){
-  mongoDB='mongodb+srv://admin_1:abc123.@cluster0.dydpz.mongodb.net/FedeDjBase?retryWrites=true&w=majority'
+  mongoDB='mongodb+srv://admin_1:abc123.@cluster0.dydpz.mongodb.net/FedeDjBase'
 }else{
   mongoDB='mongodb://localhost:27017/FedeDjBase'
 }
 
 mongoose.connect(
   mongoDB,
-  //'mongodb+srv://admin_1:abc123.@cluster0.dydpz.mongodb.net/FedeDjBase?retryWrites=true&w=majority',
+ // 'mongodb+srv://admin_1:abc123.@cluster0.dydpz.mongodb.net/FedeDjBase?retryWrites=true&w=majority',
 {useNewUrlParser:true,useCreateIndex:true,useUnifiedTopology:true,useFindAndModify:false},
 (err)=>{
     if(err) throw "err";
