@@ -36,7 +36,7 @@ server.app.use('/noticias', noticias_1.default);
 //Conectar BBDD
 let mongoDB;
 if (process.env.MODE_ENV == 'production') {
-    mongoDB = 'mongodb+srv://admin_1:abc123.@cluster0.dydpz.mongodb.net/FedeDjBase';
+    mongoDB = 'Eliminado por Seguridad';
 }
 else {
     mongoDB = 'mongodb://localhost:27017/FedeDjBase';
